@@ -1,0 +1,314 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+body{
+    background-color: rgb(249, 249, 251);
+    font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter",sans-serif;
+}
+header{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    
+}
+
+.search{
+    display: flex;
+    border-radius: 50px;
+    height: 40px;
+    width: 300px;
+    padding: 5px 12px;
+    background-color: rgb(223, 223, 223);
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px;
+    /* box-shadow: inset 5px 5px 10px rgba(0,0,0,0.25),
+    inset -5px -5px 10px rgba(255,255,255,0.7); */
+    justify-self: center;
+}
+.search > input{
+    border: none;
+    background: none;
+    outline:none;
+    width: 100%;
+}
+.search span{
+    color: rgb(54, 54, 54);
+}
+.last{
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-right: 30px;
+    justify-self: end;
+}
+.last > button{
+    border: none;
+    background: none;
+    background-color: rgb(241, 241, 241);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.223);
+    border-radius: 50%;
+    padding:8px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+    span{
+        color: rgb(46, 46, 46);
+    }
+    
+}
+.last > button:nth-child(2) > span {
+    font-size: 35px;
+    
+}
+.last > button:nth-child(2){
+    padding:2.5px;
+}
+.logo{
+    justify-self: start;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 170px;
+    height: auto;
+    margin-left: 30px;
+    img{
+        width: 170px;
+        height: auto;
+    }
+}
+main{
+    padding:5px 30px;
+}
+.div-inicial{
+    width: 100%;
+    background-image:  linear-gradient(
+        135deg,
+        rgba(0,0,0,0.8) 0%,
+        rgba(0,0,0,0.4) 35%,
+        rgba(0,0,0,0) 70%
+    ),url("assets/imgs/car_cars.jpg");
+    background-size: cover;
+    background-position: center;
+    color:white;
+    height:350px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:0px 50px;
+    gap:20px;
+    
+}
+.div1{
+    background-color: rgba(255, 255, 255, 0.27);
+    width:fit-content;
+    padding:4px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+
+}
+.div2{
+    font-size: 35px;
+    width:300px;
+    font-weight: 900;
+}
+.div3{
+    font-size: 12px;
+    font-weight: 100;
+}
+.div4{
+    font-size: 14px;
+    font-weight: 400;
+    padding:10px 14px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.507);
+    width: fit-content;
+    color:white;
+    outline:none;
+    gap:5px;  
+    user-select: none;
+    border: none; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    span{
+        font-size: 10px;
+    }
+}
+.div4:focus {
+    outline: none;
+}
+.div4:hover{
+    background-color: rgba(255, 255, 255, 0.262);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.49);
+    transform: translateY(-3px);
+}
+.div4 span {
+    transition: transform 0.3s ease;
+}
+
+.div4:hover span {
+    transform: translateX(5px);
+}
+.makes{
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.223);
+    flex-direction: row;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background: linear-gradient(
+    90deg,
+    #e9e9e9 0%,
+    #ffffff 50%,
+    #e9e9e9 100%
+);
+    border-radius: 20px;
+    margin-top: 20px;
+    height:70px;
+    font-size: 12px;
+}
+.logos{
+    display: flex;
+    flex-direction: row;
+    gap:70px;
+}
+.Alogos {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 30px;
+    border-right: 1px solid #ccc;
+    p{margin-right: 20px;}
+}
+.Alogos>span{
+    border-radius: 50%;
+    background-color: black;
+    padding: 7px;
+    color:white;
+    margin-right: 10px;
+
+}
+.logosA {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 30px;
+    font-weight: 900;
+    span{
+        margin-left: 10px;
+        font-size: 13px;
+    }
+}
+.marcas{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+}
+.marcas:nth-child(1){
+    img{width: 60px;
+        height: auto;}
+}
+.marcas:nth-child(2){
+    img{width: 35px;
+        height: auto;}
+}
+.marcas:nth-child(3){
+    img{width: 80px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+}
+.marcas:nth-child(4){
+    img{width: 65px;
+        height: auto;}
+}
+.marcas:nth-child(5){
+    img{width: 50px;
+        height: auto;}
+}
+.marcas:nth-child(6){
+    img{width: 45px;
+        height: auto;}
+}
+.marcas:nth-child(7){
+    img{width: 30px;
+        height: auto;}
+}
+.div5{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    p{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        font-size: 12px;
+        
+    }
+    
+}
+.div5>p>span{
+        font-size: 15px;
+}
+
+.favorito {
+    cursor: pointer;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+
+    transition: 0.2s ease;
+}
+
+.favorito.activo {
+    color: rgb(255, 29, 112);
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+.car-card{
+    height: 210px;
+    width:320px;
+    background-color: rgb(255, 255, 255);
+    border-radius:20px ;
+}
+.car-header{
+    background-image: url("assets/imgs/car_cars.jpg");
+    height: 150px;
+    width: 320px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 12px;
+
+}
+.car-year{
+    background-color: rgba(115, 115, 115, 0.3);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 40px;
+    height: fit-content;
+    font-size: 12px;
+}
