@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  background: #f4f4f5;
+  color: #1f2937;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+.contenedor {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 0.2rem;
+}
+
+.subtitulo {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  gap: 0.6rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+input {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.lista-reclamos {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.reclamo {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reclamo p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.reclamo .acciones {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.estado {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.estado.ingreso     { background: #fef3c7; color: #92400e; }
+.estado.en_proceso  { background: #dbeafe; color: #1e40af; }
+.estado.resuelto    { background: #dcfce7; color: #166534; }
+
+select {
+  font-size: 0.8rem;
+  padding: 0.2rem;
+  border-radius: 6px;
+}
+
+.reclamo .borrar {
+  background: #ef4444;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.reclamo .borrar:hover {
+  background: #dc2626;
+}

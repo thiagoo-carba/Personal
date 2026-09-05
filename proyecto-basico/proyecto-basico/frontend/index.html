@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Notas - Proyecto básico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="contenedor">
+    <h1>Mis notas</h1>
+    <p class="subtitulo">Frontend (HTML/CSS/JS) hablando con un backend propio (Node + Express + SQLite)</p>
+
+    <!-- Formulario para crear una nota nueva -->
+    <form id="form-nota">
+      <input type="text" id="input-titulo" placeholder="Título" required>
+      <textarea id="input-contenido" placeholder="Contenido" required></textarea>
+      <button type="submit">Guardar nota</button>
+    </form>
+
+    <!-- Acá el JS va a insertar las notas que trae del backend -->
+    <ul id="lista-notas" class="lista-notas"></ul>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

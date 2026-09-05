@@ -1,115 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control de acceso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/Cars/css/styles-login.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
 
-            <a href="index.html">
-                <img src="assets/imgs/logo_car.png" alt="">
-            </a>
-
+  <main class="login-card">
+ 
+    <!-- ================= IZQUIERDA: inputs ================= -->
+    <section class="login-left">
+ 
+      <div class="logo">
+        <!-- Reemplazá el src por el logo real de tu página -->
+        <img src="/Cars/assets/imgs/logo_car.png" alt="Logo">
+      </div>
+ 
+      <div class="left-content">
+ 
+        <header class="left-header">
+          <h1>Iniciar sesión</h1>
+          <p class="sub">Elegí cómo querés ingresar</p>
+        </header>
+ 
+        <!-- Selector de rol -->
+        <div class="cards" id="cardStep">
+ 
+          <button class="role-card" id="cardUsuario" type="button" data-role="usuario">
+            <span class="role-card__icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c1.6-4 4.7-6 8-6s6.4 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <span class="role-card__text">
+              <span class="role-card__title">Usuario común</span>
+              <span class="role-card__desc">Acceso directo, sin credenciales</span>
+            </span>
+            <span class="role-card__arrow">→</span>
+          </button>
+ 
+          <button class="role-card" id="cardAdmin" type="button" data-role="admin">
+            <span class="role-card__icon">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6"/></svg>
+            </span>
+            <span class="role-card__text">
+              <span class="role-card__title">Administrador</span>
+              <span class="role-card__desc">Requiere usuario y contraseña</span>
+            </span>
+            <span class="role-card__arrow">→</span>
+          </button>
+ 
         </div>
-        <div class="search">
-
-            <span class="material-symbols-outlined">search</span>
-            <input type="text" placeholder="Busca tu auto...">
-
-        </div>
-        <div class="last">
-
-            <button>
-                <span class="material-symbols-outlined">shopping_cart</span>
+ 
+        <!-- Formulario de administrador -->
+        <div class="form-step" id="formStep" hidden>
+ 
+          <button class="back" id="backBtn" type="button">← Volver</button>
+ 
+          <form id="adminForm" novalidate>
+ 
+            <label class="field">
+              <span class="field__label">Usuario</span>
+              <input class="field__input" type="text" id="adminUser" name="adminUser" autocomplete="username" placeholder="tu.usuario" required>
+            </label>
+ 
+            <label class="field">
+              <span class="field__label">Contraseña</span>
+              <input class="field__input" type="password" id="adminPass" name="adminPass" autocomplete="current-password" placeholder="••••••••" required>
+            </label>
+ 
+            <p class="error" id="formError" role="alert" hidden>Completá usuario y contraseña.</p>
+ 
+            <button class="submit" type="submit">
+              <span>Ingresar</span>
+              <span class="submit__spinner" aria-hidden="true"></span>
             </button>
-
-            <button>
-                <span class="material-symbols-outlined">account_circle</span>
-            </button>
-
+          </form>
+ 
         </div>
-    </header>
+ 
+      </div>
+ 
+      <p class="status" id="statusText"></p>
+ 
+    </section>
+ 
+    <!-- ================= DERECHA: imagen de autos ================= -->
+    <aside class="login-right">
+      <div class="login-right__tag">CARS · ACCESO</div>
+      <h2 class="login-right__title">Encontrá tu<br>próximo auto</h2>
+      <p class="login-right__sub">Miles de vehículos verificados te esperan del otro lado.</p>
+    </aside>
+ 
+  </main>
 
-    <main>  
-        <div class="div-inicial">
-            <div class="div1">NUEVOS ARRIVOS</div>
-            <div class="div2">Potencia. Diseño. Exclusividad</div>
-            <div class="div3">Descubri los mejores vehiculos en un solo lugar</div>
-            <button class="div4">Explorar catalogo <span class="material-symbols-outlined">arrow_forward_ios</span></button>
-        </div>
-
-        <div class="makes">
-            <div class="Alogos"><span class="material-symbols-outlined">border_all</span><p>Todas</p></div>
-            <div class="logos">
-                <div class="marcas"><img src="https://imgs.search.brave.com/UTvpPWyAI_z3y3p9e2nGVOXJkMPAd-Ca7VZDVTUVTFM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sb2dv/cy13b3JsZC5uZXQv/d3AtY29udGVudC91/cGxvYWRzLzIwMjAv/MDQvQk1XLUxvZ28t/NzAweDM5NC5wbmc" alt="">BMW</div>
-                <div class="marcas"><img src="https://imgs.search.brave.com/nwjT944ejdJ1ThLpbbBRqwMLWLB89VdzB0LADS9Ie9s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnJlZXBuZ2xvZ29z/LmNvbS91cGxvYWRz/L21lcmNlZGVzLWxv/Z28tcG5nL21lcmNl/ZGVzLWxvZ28td29y/bGQtY2FyLW1lcmNl/ZGVzLWJlbnotY2xh/c3MtY2RpLTEucG5n" alt="">Mercedez-Benz</div>
-                <div class="marcas"><img src="https://imgs.search.brave.com/kVaxCTS4AlkUgZQ82bnxFMzyX7ryzIvn7F_5pxfK9rM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnJlZXBuZ2xvZ29z/LmNvbS91cGxvYWRz/L2F1ZGktbG9nby04/LnBuZw" alt="">Audi</div>
-                <div class="marcas"><img src="https://imgs.search.brave.com/Gu6Ci1zNbFxLu_RA0Pk7-kVEoUQfHald-Z4rUwX7T2k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnJlZXBuZ2xvZ29z/LmNvbS91cGxvYWRz/L3BvcnNjaGUtbG9n/by00LnBuZw" alt="">Porsche</div>
-                <div class="marcas"><img src="https://www.logo.wine/a/logo/Tesla%2C_Inc./Tesla%2C_Inc.-Logomark-Black-Logo.wine.svg" alt="">Tesla</div>
-                <div class="marcas"><img src="https://imgs.search.brave.com/SuB8Nv7rISubGq5NaZi41208yiYW1c_2vSan0BaWGwY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnJlZXBuZ2xvZ29z/LmNvbS91cGxvYWRz/L3RveW90YS1sb2dv/LXBuZy90b3lvdGEt/bG9nb3MtYnJhbmRz/LTEwLnBuZw" alt="">Toyota</div>
-                <div class="marcas"><img src="https://imgs.search.brave.com/Xt7yOPkzYXQUuYqPulIxGtqpkSbIVftZ-8JE5GrC_OY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnJlZXBuZ2xvZ29z/LmNvbS91cGxvYWRz/L2xhbWJvcmdoaW5p/LWxvZ28tcG5nL2xh/bWJvcmdoaW5pLWxv/Z28tZHJhd24tbG9n/by1sYW1ib3JnaGlu/aS1wZW5jaWwtYW5k/LWNvbG9yLWRyYXdu/LWxvZ28tMTEucG5n" alt="">Lamborghini</div>
-            </div>
-            <div class="logosA">Ver más <span class="material-symbols-outlined">arrow_forward_ios</span></div>
-        </div>
-
-        <div class="div5">
-            <h2>Destacados</h2>
-            <p>Ver todos <span class="material-symbols-outlined">arrow_forward_ios</span></p>
-        </div>
-
-        <div class="car-container">
-            <div class="car-card">
-
-                <div class="car-header">
-                    <div class="car-year">2022</div>
-            
-                    <div class="car-favorite">
-                        <span class="material-symbols-outlined favorito">favorite</span>
-                    </div>
-                </div>
-            
-                <div class="car-info">
-            
-                    <div class="car-details">
-                        <div class="car-name">Audi RS6 Avant</div>
-                        <div class="car-specs">4.0L V8 | 600hp</div>
-                    </div>
-            
-                    <div class="car-price">
-                        $<span>189.000</span>
-                    </div>
-            
-                </div>
-            
-            </div>
-
-        </div>
-
-
-
-
-
-
-
-
-    </main>
-
-
-    <footer>
-
-    </footer>
-
-
-
-
-    <script src="script.js"></script>   
+  <script src="/Cars/js/script-login.js"></script>
 </body>
 </html>
