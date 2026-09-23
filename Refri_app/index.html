@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Freshly</title>
+
+    <!-- Material Icons -->
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+        rel="stylesheet"
+    >
+
+    <!-- Inter -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <div>
+            <span class="eyebrow">YOUR KITCHEN</span>
+            <h1 id="pageTitle">Your Refrigerator</h1>
+            <p id="pageSubtitle">
+                Everything fresh and organized.
+            </p>
+        </div>
+
+        <button class="icon-button" id="headerAction">
+            <span class="material-icons-round">notifications_none</span>
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         FRIDGE PAGE
+    ========================== -->
+
+    <section class="page active" id="fridgePage">
+
+        <div class="overview-card">
+
+            <div class="overview-content">
+                <span class="overview-label">FRIDGE STATUS</span>
+
+                <h2>
+                    <span id="foodCount">0</span>
+                    <span>items inside</span>
+                </h2>
+
+                <p id="expiringText">
+                    Nothing is expiring soon.
+                </p>
+            </div>
+
+            <div class="overview-icon">
+                <span class="material-icons-round">kitchen</span>
+            </div>
+
+        </div>
+
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-kicker">INVENTORY</span>
+                <h2>Your food</h2>
+            </div>
+
+            <button class="small-button" id="sortButton">
+                <span class="material-icons-round">sort</span>
+                Sort
+            </button>
+
+        </div>
+
+
+        <div class="food-list" id="foodList"></div>
+
+
+        <div class="empty-state" id="emptyState">
+
+            <div class="empty-icon">
+                <span class="material-icons-round">kitchen</span>
+            </div>
+
+            <h3>Your refrigerator is empty</h3>
+
+            <p>
+                Add your first food item to start building your kitchen.
+            </p>
+
+            <button class="primary-button" id="emptyAddButton">
+                <span class="material-icons-round">add</span>
+                Add food
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RECIPES PAGE
+    ========================== -->
+
+    <section class="page" id="recipesPage">
+
+        <div class="recipe-intro">
+
+            <span class="section-kicker">PERSONALIZED FOR YOU</span>
+
+            <h2>What can you cook?</h2>
+
+            <p>
+                Recipes are ranked using the ingredients currently in your refrigerator.
+            </p>
+
+        </div>
+
+
+        <div class="recipe-filters">
+
+            <button class="filter active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter" data-filter="quick">
+                Quick
+            </button>
+
+            <button class="filter" data-filter="easy">
+                Easy
+            </button>
+
+            <button class="filter" data-filter="vegetarian">
+                Vegetarian
+            </button>
+
+        </div>
+
+
+        <div class="priority-banner" id="priorityBanner">
+
+            <div class="priority-icon">
+                <span class="material-icons-round">schedule</span>
+            </div>
+
+            <div>
+                <strong>Use food before it expires</strong>
+                <p id="priorityText">
+                    We'll prioritize recipes using your expiring ingredients.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="section-heading recipe-heading">
+
+            <div>
+                <span class="section-kicker">MATCHES</span>
+                <h2>Recommended recipes</h2>
+            </div>
+
+        </div>
+
+
+        <div class="recipe-list" id="recipeList"></div>
+
+    </section>
+
+
+    <!-- =========================
+         STATS PAGE
+    ========================== -->
+
+    <section class="page" id="statsPage">
+
+        <div class="stats-intro">
+
+            <span class="section-kicker">YOUR HABITS</span>
+
+            <h2>Kitchen overview</h2>
+
+            <p>
+                Keep an eye on your food and reduce waste.
+            </p>
+
+        </div>
+
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    <span class="material-icons-round">inventory_2</span>
+                </div>
+
+                <strong id="statItems">0</strong>
+
+                <span>Items stored</span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon yellow">
+                    <span class="material-icons-round">schedule</span>
+                </div>
+
+                <strong id="statExpiring">0</strong>
+
+                <span>Expiring soon</span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+                    <span class="material-icons-round">warning</span>
+                </div>
+
+                <strong id="statExpired">0</strong>
+
+                <span>Expired</span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    <span class="material-icons-round">restaurant</span>
+                </div>
+
+                <strong id="statRecipes">0</strong>
+
+                <span>Recipes available</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="insight-card">
+
+            <div class="insight-header">
+
+                <div class="insight-icon">
+                    <span class="material-icons-round">lightbulb</span>
+                </div>
+
+                <div>
+                    <span class="section-kicker">INSIGHT</span>
+                    <h3 id="insightTitle">You're doing great</h3>
+                </div>
+
+            </div>
+
+            <p id="insightText">
+                Add some food to receive personalized kitchen insights.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ADD FOOD MODAL
+    ========================== -->
+
+    <div class="modal-overlay" id="modal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="section-kicker">NEW ITEM</span>
+                    <h2>Add food</h2>
+                </div>
+
+                <button class="icon-button close-modal" id="closeModal">
+                    <span class="material-icons-round">close</span>
+                </button>
+
+            </div>
+
+
+            <form id="foodForm">
+
+                <div class="input-group">
+
+                    <label for="foodName">
+                        Food name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="foodName"
+                        placeholder="e.g. Chicken"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="input-group">
+
+                        <label for="foodQuantity">
+                            Quantity
+                        </label>
+
+                        <input
+                            type="text"
+                            id="foodQuantity"
+                            placeholder="e.g. 1 kg"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="foodDays">
+                            Fresh for
+                        </label>
+
+                        <input
+                            type="number"
+                            id="foodDays"
+                            placeholder="7"
+                            min="1"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="foodCategory">
+                        Category
+                    </label>
+
+                    <select id="foodCategory">
+
+                        <option value="protein">Protein</option>
+                        <option value="vegetable">Vegetable</option>
+                        <option value="fruit">Fruit</option>
+                        <option value="dairy">Dairy</option>
+                        <option value="grain">Grain</option>
+                        <option value="other">Other</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="foodImage">
+                        Image URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="foodImage"
+                        placeholder="https://..."
+                    >
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelButton"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        <span class="material-icons-round">add</span>
+                        Add food
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         RECIPE MODAL
+    ========================== -->
+
+    <div class="modal-overlay" id="recipeModal">
+
+        <div class="recipe-modal">
+
+            <button class="recipe-close icon-button" id="closeRecipe">
+                <span class="material-icons-round">close</span>
+            </button>
+
+            <div class="recipe-hero">
+
+                <div class="recipe-hero-icon">
+                    <span class="material-icons-round">restaurant</span>
+                </div>
+
+            </div>
+
+
+            <div class="recipe-content">
+
+                <span class="section-kicker" id="recipeModalTag">
+                    RECIPE
+                </span>
+
+                <h2 id="recipeModalTitle">
+                    Recipe
+                </h2>
+
+                <div class="recipe-meta">
+
+                    <span>
+                        <span class="material-icons-round">schedule</span>
+                        <span id="recipeModalTime">20 min</span>
+                    </span>
+
+                    <span>
+                        <span class="material-icons-round">signal_cellular_alt</span>
+                        <span id="recipeModalDifficulty">Easy</span>
+                    </span>
+
+                </div>
+
+
+                <h3>Ingredients</h3>
+
+                <div id="recipeModalIngredients"></div>
+
+
+                <div class="recipe-match-box">
+
+                    <span class="material-icons-round">check_circle</span>
+
+                    <div>
+                        <strong id="recipeMatchTitle">
+                            Great match
+                        </strong>
+
+                        <p id="recipeMatchText">
+                            You have most of the ingredients.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <button class="primary-button cook-button">
+                    <span class="material-icons-round">restaurant</span>
+                    Start cooking
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         BOTTOM NAV
+    ========================== -->
+
+    <nav class="bottom-nav">
+
+        <button class="nav-item active" data-page="fridge">
+
+            <span class="nav-icon">
+                <span class="material-icons-round">kitchen</span>
+            </span>
+
+            <span>Fridge</span>
+
+        </button>
+
+
+        <button class="nav-item" data-page="recipes">
+
+            <span class="nav-icon">
+                <span class="material-icons-round">restaurant_menu</span>
+            </span>
+
+            <span>Recipes</span>
+
+        </button>
+
+
+        <button class="add-nav" id="addButton">
+
+            <span class="material-icons-round">add</span>
+
+        </button>
+
+
+        <button class="nav-item" data-page="stats">
+
+            <span class="nav-icon">
+                <span class="material-icons-round">insights</span>
+            </span>
+
+            <span>Stats</span>
+
+        </button>
+
+
+        <button class="nav-item" id="searchButton">
+
+            <span class="nav-icon">
+                <span class="material-icons-round">search</span>
+            </span>
+
+            <span>Search</span>
+
+        </button>
+
+    </nav>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
