@@ -4,20 +4,35 @@
 }
 body {
     font-family: 'Inter', sans-serif;
+    
+}
+html {
+    margin: 0;
+    padding: 0;
+    background: #00A095;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
 }
 header {
     position: relative;
     overflow: hidden;
     width: 100%;
     height: auto;
-    
+    padding-top: env(safe-area-inset-top);
+
+    min-height: calc(60px + env(safe-area-inset-top));
+
     background: linear-gradient(
         90deg,
         #006F69 0%,
         #00A095 50%,
         #008F88 100%
     );
-    border-radius: 0 0 30px 30px;
+    border-radius: 0 0 40px 40px;
     display: flex;
     flex-direction: column;
     gap: 10px;
