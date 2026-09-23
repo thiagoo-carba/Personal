@@ -1,0 +1,109 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis proyectos</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #proyectos {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        a {
+            display: block;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #222;
+        }
+
+        a:hover {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Mis proyectos</h1>
+
+    <div id="proyectos">
+        Cargando proyectos...
+    </div>
+
+    <script>
+        const usuario = "thiagoo-carba";
+        const repositorio = "Personal";
+
+        const contenedor = document.getElementById("proyectos");
+
+        async function cargarProyectos() {
+
+            try {
+
+                const respuesta = await fetch(
+                    `https://api.github.com/repos/${usuario}/${repositorio}/contents`
+                );
+
+                if (!respuesta.ok) {
+                    throw new Error("No se pudo acceder al repositorio");
+                }
+
+                const elementos = await respuesta.json();
+
+                contenedor.innerHTML = "";
+
+                const carpetas = elementos.filter(elemento =>
+                    elemento.type === "dir"
+                );
+
+                if (carpetas.length === 0) {
+                    contenedor.textContent = "No hay proyectos.";
+                    return;
+                }
+
+                for (const carpeta of carpetas) {
+
+                    const enlace = document.createElement("a");
+
+                    enlace.textContent = carpeta.name;
+
+                    enlace.href = `./${carpeta.name}/`;
+
+                    enlace.target = "_blank";
+
+                    contenedor.appendChild(enlace);
+                }
+
+            } catch (error) {
+
+                console.error(error);
+
+                contenedor.textContent =
+                    "No se pudieron cargar los proyectos.";
+            }
+        }
+
+        cargarProyectos();
+    </script>
+
+</body>
+</html>
+```
